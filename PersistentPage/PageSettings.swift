@@ -1,9 +1,9 @@
 //
 //  PageSettings.swift
-//  SwiftToy
+//  PersistentPage
 //
 //  Created by Simon on 2019-02-15.
-//  Copyright © 2019 Elektro-Kapsel AB. All rights reserved.
+//  Copyright © 2019 Simon Berg, Elektro-Kapsel AB.
 //
 
 import WebKit
