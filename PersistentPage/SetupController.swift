@@ -15,6 +15,12 @@ class SetupController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var timeoutField: UITextField!
     
+    @IBOutlet weak var countDownLabel: UILabel!
+    
+    var startTimer: Timer?
+    
+    @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
@@ -23,7 +29,39 @@ class SetupController: UIViewController , UITextFieldDelegate {
         urlField.text = "http://www.elektro-kapsel.se"
         
     }
-
+    
+    // Counts down seconds before automatically start
+    var countDown = 0
+    
+    func updateCountDownLabel()
+    {
+        countDownLabel?.text = "Automatically start browser in \(countDown) seconds"
+    }
+    
+    func startStartTimer()
+    {
+        countDown = 5;
+        startTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {(timer) in self.timerTick()})
+        updateCountDownLabel()
+    }
+    
+    func cancelStartTimer()
+    {
+        startTimer?.invalidate()
+        startTimer = nil
+    }
+    
+    func timerTick()
+    {
+        countDown -= 1;
+        updateCountDownLabel()
+        if countDown == 0 {
+            cancelStartTimer()
+            performSegue(withIdentifier: "StartBrowser", sender: self)
+        }
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         loadSettings()
         if settings == nil {
@@ -32,10 +70,16 @@ class SetupController: UIViewController , UITextFieldDelegate {
         
         urlField.text = settings!.url.absoluteString
         timeoutField.text = settings!.timeout.description
-        
+        urlField.isEnabled = false
+        timeoutField.isEnabled = false
+        countDownLabel.isHidden = false
+        editButton.isHidden = false
+        startStartTimer()
+       
     }
         
     override func viewWillDisappear(_ animated: Bool) {
+        cancelStartTimer()
         urlField.endEditing(true)
         timeoutField.endEditing(true)
         saveSettings()
@@ -67,9 +111,15 @@ class SetupController: UIViewController , UITextFieldDelegate {
         }
         sender.text = settings!.url.absoluteString
     }
-    @IBAction func startClicked(_ sender: UIButton) {
     
-      
+    @IBAction func editSettings(_ sender: UIButton) {
+        cancelStartTimer()
+        
+        urlField.isEnabled = true
+        timeoutField.isEnabled = true
+        countDownLabel.isHidden = true
+        editButton.isHidden = true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

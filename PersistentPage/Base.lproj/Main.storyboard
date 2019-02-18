@@ -13,118 +13,123 @@
         <!--Setup Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SetupController" customModule="SwiftToy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SetupController" customModule="PersistentPage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="top" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="center" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gft-Hq-qj2">
-                                <rect key="frame" x="325" y="496" width="351.5" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="Wmc-Db-Eye">
-                                        <rect key="frame" x="0.0" y="0.0" width="351.5" height="53"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-yP-k8Z">
-                                                <rect key="frame" x="0.0" y="22" width="51.5" height="29"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                                </accessibility>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" adjustsFontSizeToFit="NO" minimumFontSize="24" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g6T-ou-Q9g">
-                                                <rect key="frame" x="51.5" y="20" width="300" height="33"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                </accessibility>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="3zz-h6-tRL"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next" textContentType="url"/>
-                                                <connections>
-                                                    <action selector="urlEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="eFv-24-eCo"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="g6T-ou-Q9g" firstAttribute="top" secondItem="Wmc-Db-Eye" secondAttribute="top" constant="20" symbolic="YES" id="MsN-M2-R6f"/>
-                                        </constraints>
-                                        <viewLayoutGuide key="safeArea" id="VGX-qR-Lux"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="Bik-jQ-rzJ">
-                                        <rect key="frame" x="0.0" y="53" width="351.5" height="33"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeout:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd3-8u-7mu">
-                                                <rect key="frame" x="0.0" y="2" width="91.5" height="29"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
-                                                </accessibility>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minutes" adjustsFontSizeToFit="NO" minimumFontSize="24" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-mQ-BCT">
-                                                <rect key="frame" x="91.5" y="0.0" width="260" height="33"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                </accessibility>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
-                                                <connections>
-                                                    <action selector="timeoutEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="dkA-2v-7u2"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="aPL-mQ-BCT" firstAttribute="top" secondItem="Bik-jQ-rzJ" secondAttribute="top" id="Azs-QO-qgu"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="right" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="SMi-eL-fce">
-                                        <rect key="frame" x="0.0" y="86" width="351.5" height="41"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q94-eo-EwI">
-                                                <rect key="frame" x="0.0" y="0.0" width="351.5" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Start"/>
-                                                <connections>
-                                                    <action selector="startClicked:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Bgx-1x-WTe"/>
-                                                    <segue destination="p26-uI-lz9" kind="show" id="ryW-yk-P2J"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.42691692974315654" green="0.23236718026241598" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-yP-k8Z">
+                                <rect key="frame" x="10" y="120" width="91.5" height="29"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" adjustsFontSizeToFit="NO" minimumFontSize="24" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g6T-ou-Q9g">
+                                <rect key="frame" x="106.5" y="118" width="611.5" height="33"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="next" textContentType="url"/>
+                                <connections>
+                                    <action selector="urlEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="eFv-24-eCo"/>
+                                </connections>
+                            </textField>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minutes" adjustsFontSizeToFit="NO" minimumFontSize="24" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-mQ-BCT">
+                                <rect key="frame" x="106.5" y="152" width="104" height="33"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="400" constant="100" id="U99-pd-DOq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="timeoutEntered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="dkA-2v-7u2"/>
+                                </connections>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeout:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd3-8u-7mu">
+                                <rect key="frame" x="10" y="154" width="91.5" height="29"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAy-qH-Dme">
+                                <rect key="frame" x="343" y="205" width="82" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <segue destination="p26-uI-lz9" kind="show" identifier="StartBrowser" id="7nw-hP-tkt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zM-Xr-k0l">
+                                <rect key="frame" x="278.5" y="289" width="211" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Edit settings"/>
+                                <connections>
+                                    <action selector="editSettings:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="5Xn-AL-BeR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automaically start in xxx seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-Mx-gol">
+                                <rect key="frame" x="240.5" y="265" width="287" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g6T-ou-Q9g" secondAttribute="trailing" constant="50" id="6FT-TV-xN4"/>
+                            <constraint firstItem="EAy-qH-Dme" firstAttribute="centerX" secondItem="9zM-Xr-k0l" secondAttribute="centerX" id="6Vb-uq-gHf"/>
+                            <constraint firstItem="g6T-ou-Q9g" firstAttribute="firstBaseline" secondItem="oCd-yP-k8Z" secondAttribute="firstBaseline" id="8f3-pM-KmC"/>
+                            <constraint firstItem="aPL-mQ-BCT" firstAttribute="leading" secondItem="g6T-ou-Q9g" secondAttribute="leading" id="A06-Kb-PaN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aPL-mQ-BCT" secondAttribute="trailing" priority="250" constant="50" id="Ac6-gf-rHr"/>
+                            <constraint firstItem="oCd-yP-k8Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="300" constant="10" id="QGG-Bz-r15"/>
+                            <constraint firstItem="g6T-ou-Q9g" firstAttribute="leading" secondItem="oCd-yP-k8Z" secondAttribute="trailing" constant="5" id="QTH-RM-Mcr"/>
+                            <constraint firstItem="xd3-8u-7mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="300" constant="10" id="Syf-0w-SQr"/>
+                            <constraint firstItem="wQ8-Mx-gol" firstAttribute="top" secondItem="EAy-qH-Dme" secondAttribute="bottom" id="TzK-J2-bCz"/>
+                            <constraint firstItem="EAy-qH-Dme" firstAttribute="top" secondItem="aPL-mQ-BCT" secondAttribute="bottom" constant="20" id="bUd-2d-PGC"/>
+                            <constraint firstItem="wQ8-Mx-gol" firstAttribute="bottom" secondItem="9zM-Xr-k0l" secondAttribute="top" id="kMx-2t-xB5"/>
+                            <constraint firstItem="aPL-mQ-BCT" firstAttribute="firstBaseline" secondItem="xd3-8u-7mu" secondAttribute="firstBaseline" id="lEv-xT-icg"/>
+                            <constraint firstItem="oCd-yP-k8Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="lbj-Td-YZC"/>
+                            <constraint firstItem="EAy-qH-Dme" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mrG-fd-54G"/>
+                            <constraint firstItem="wQ8-Mx-gol" firstAttribute="centerX" secondItem="9zM-Xr-k0l" secondAttribute="centerX" id="t2e-J5-aeI"/>
+                            <constraint firstItem="xd3-8u-7mu" firstAttribute="trailing" secondItem="oCd-yP-k8Z" secondAttribute="trailing" id="ub2-bl-kLQ"/>
+                            <constraint firstItem="xd3-8u-7mu" firstAttribute="top" secondItem="oCd-yP-k8Z" secondAttribute="bottom" constant="5" id="yDa-e7-qPn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="wQ8-Mx-gol" id="JMi-MJ-Zww"/>
+                        <outlet property="editButton" destination="9zM-Xr-k0l" id="WSD-X4-9Lh"/>
                         <outlet property="timeoutField" destination="aPL-mQ-BCT" id="obh-R7-TTv"/>
                         <outlet property="urlField" destination="g6T-ou-Q9g" id="ldR-6f-iqt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-291"/>
+            <point key="canvasLocation" x="-391.40625" y="-291.2109375"/>
         </scene>
         <!--Web Browser Controller-->
         <scene sceneID="xxm-Gt-HJ3">
             <objects>
-                <viewController id="p26-uI-lz9" customClass="WebBrowserController" customModule="SwiftToy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p26-uI-lz9" customClass="WebBrowserController" customModule="PersistentPage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wPJ-9T-Zs0">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KF-Yh-L93">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" allowsAirPlayForMediaPlayback="NO" allowsPictureInPictureMediaPlayback="NO">
                                     <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
