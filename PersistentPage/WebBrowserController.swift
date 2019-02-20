@@ -22,5 +22,9 @@ class WebBrowserController: UIViewController , WKUIDelegate {
         webView.load(request)
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        webView.stopLoading()
+    }
 }
 
