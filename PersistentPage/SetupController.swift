@@ -61,11 +61,12 @@ class SetupController: UIViewController , UITextFieldDelegate {
         }
         
     }
+    let INITIAL_URL:String = "http://";
     
     override func viewDidAppear(_ animated: Bool) {
         loadSettings()
         if settings == nil {
-            settings = PageSettings(url: URL(string: "http://")!, timeout: 0)
+            settings = PageSettings(url: URL(string: INITIAL_URL)!, timeout: 0)
         }
         
         urlField.text = settings!.url.absoluteString
@@ -74,8 +75,12 @@ class SetupController: UIViewController , UITextFieldDelegate {
         timeoutField.isEnabled = false
         countDownLabel.isHidden = false
         editButton.isHidden = false
-        startStartTimer()
-       
+        
+        if urlField.text! == INITIAL_URL {
+            startEditing();
+        } else {
+            startStartTimer()
+        }
     }
         
     override func viewWillDisappear(_ animated: Bool) {
@@ -112,14 +117,16 @@ class SetupController: UIViewController , UITextFieldDelegate {
         sender.text = settings!.url.absoluteString
     }
     
-    @IBAction func editSettings(_ sender: UIButton) {
-        cancelStartTimer()
-        
+    func startEditing() {
         urlField.isEnabled = true
         timeoutField.isEnabled = true
         countDownLabel.isHidden = true
         editButton.isHidden = true
-        
+    }
+    
+    @IBAction func editSettings(_ sender: UIButton) {
+        cancelStartTimer()
+        startEditing();
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
